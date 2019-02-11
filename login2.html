@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discord Bot Login</title>
+
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+  <script src="particles.js"></script>
+  <script type="text/javascript">
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+  </script>
+  <!-- Recommend: on-demand loading. Import basic dependence -->
+  <script src="assets/jparticles.js"></script>
+  <!-- Import particle effect -->
+  <script src="assets/particle.js"></script>
+  <script src="assets/snow.js"></script>
+</head>
+
+
+<body>
+  <div id="particle"></div>
+  <div id="name"><a>Client</a></div>
+  <div class="loginForm">
+    <form class="form">
+      <div class="centeringWrapper">
+
+        <div id="title">Welcome back!</div>
+        <div id="subtitle">Good to see you again!</div>
+
+        <div id="TokenWrapper">
+          <h5 id="Token">Token</h5>
+          <div id="inputWrapper">
+            <input id="TokenButton" type="password" name="token">
+          </div>
+        </div>
+
+        <button id="button" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+// or
+//JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
+  //  return -c *(t/=d)*(t-2) + b;
+//};
+      // Use `new JParticles.name` to create effect.
+      let effect = new JParticles.snow('#particle', {opacity: 1, 
+        color: ['#5e688a', '#7c8186', '#1e2023'],
+        direction:"top",
+        maxSpeed: -0.5,
+        minSpeed: -0.25,
+        lineShape: 'cube',
+        range: 0,
+        //proximity: 100,
+        // Turn on parallax effect
+        parallax: true,
+        maxR: 10,
+        minR: 5
+      });
+      effect
+    .onDestroy(function () {
+        console.log('Canvas has been removed - 1');
+    }, function () {
+        console.log('Canvas has been removed - 2');
+    })
+    .onDestroy(function () {
+        console.log('Canvas has been removed - 3');
+    })
+  </script>
+</html>
