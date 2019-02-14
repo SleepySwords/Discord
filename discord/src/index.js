@@ -19,16 +19,26 @@ class Login extends React.Component {
 
 	submit(e) {
 		e.preventDefault()
-		if (this.state.token != "" || (this.state.username != "" && this.state.password != "")) {
-			
+
+		let msgs = [null, null, null]
+
+		let err;
+		if (!this.state.username.includes("@")) {
+
+			err = new BlankFieldError(this.state.token === "", true, this.state.password === "");
+			err.setErrorMessage(1, "You must have an @ symbol.")
+
+		} else if (/.+@.+\..+/.test(this.state.username)) {
+
+			err = new BlankFieldError(this.state.token === "", true, this.state.password === "");
+			err.setErrorMessage(1, "Not a well formated email address")
+
 		} else {
-			//todo error messages
-			let err = new BlankFieldError(this.state.token == "", this.state.username == "", this.state.password == "");
-			this.setState({Field: err})
+			err = new BlankFieldError(this.state.token === "", this.state.username === "", this.state.password === "");
 		}
+		this.setState({Field: err})
 	}
 	change(event) {
-		console.log( event)
 		this.setState({[event.target.name]: event.target.value})
 	}
 

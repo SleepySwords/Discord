@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './../index.css';
 
 class Field extends React.Component {
 	render() {
+		let msgs = this.props.errorMessage;
 		if(this.props.error) {
 			return (
 				<label>
 
-					<a className="Field" id="redField">{this.props.name} <i className="errorField"> - This field is required</i></a>
-					<input className="TokenButton inputError" onChange={this.props.change} type={this.props.type} name={this.props.name} />
+					<div className="Field" id="redField">{this.props.name} <i className="errorField"> - {msgs(this.props.name)}</i></div>
+					<input autoComplete="off" spellCheck="false" className="TokenButton inputError" onChange={this.props.change} type={this.props.type} name={this.props.name} />
 				</label>
 			)
 		} else {	
 			return (
 				<label>
-					<a className="Field">{this.props.name}</a>
-					<input onChange={this.props.change} type={this.props.type} className="TokenButton" name={this.props.name} />
+					<div className="Field">{this.props.name}</div>
+					<input autoComplete="off" spellCheck="false" onChange={this.props.change} type={this.props.type} className="TokenButton" name={this.props.name} />
 				</label>
 			)
 		}
@@ -26,10 +26,9 @@ class Field extends React.Component {
 class Input extends React.Component {
 	render() {
 		let errored = this.props.Field.fields;
-		console.log(errored)
 		if (this.props.value === "bot") {
 			return (
-				<Field name="token" type="password" change={this.props.change} error={errored[0]}></Field>
+				<Field name="token" type="password" change={this.props.change} error={errored[0]} errorMessage={(type) => this.props.Field.getErrorMessage(type)}></Field>
     			//<label>
 	        	//	<a className="Field">Token</a>
 	        	//	<input onChange={this.props.change} type="password" id="TokenButton" name="token" />
@@ -38,8 +37,8 @@ class Input extends React.Component {
 		} else {
 			return (
 				<div>
-					<Field name="username" type="Username" change={this.props.change} error={errored[1]}></Field>
-					<Field name="password" type="password" change={this.props.change} error={errored[2]}></Field>
+					<Field name="username" type="Username" change={this.props.change} error={errored[1]} errorMessage={(type) => this.props.Field.getErrorMessage(type)}></Field>
+					<Field name="password" type="password" change={this.props.change} error={errored[2]} errorMessage={(type) => this.props.Field.getErrorMessage(type)}></Field>
 				</div>
         			//<label>
 		        	//	<a className="Field">Username</a>

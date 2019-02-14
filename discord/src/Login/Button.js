@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './../index.css';
 class Button extends React.Component {
 	  
@@ -9,21 +8,21 @@ class Button extends React.Component {
 	render() {
 		if (this.props.value === "bot") {
 			return (	
-				<a onClick={() => {
+				<div onClick={() => {
 					this.props.onClick();
 				}} className="Button"> 
 					Switch to User account
-				</a>
+				</div>
 			)
 		} else {
 			return (
 
-				<a onClick={() => {
+				<div href="#" onClick={() => {
 					//alert(this.state.value)
 					this.props.onClick();
 				}} className="Button"> 
 					Switch to Bot account
-				</a>
+				</div>
 			)
 		}
 	}

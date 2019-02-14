@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+}
+
 .code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -22,6 +26,9 @@ body {
   font-weight: 500;
 }
 
+.TokenButton:focus {
+  border-color: #7289da;
+}
 
 .TokenButton {
   width: 100%;
@@ -60,7 +67,7 @@ body {
 }
 
 .inputError {
-  border-color: #f04747;
+  border-color: #f04747 !important;
 }
 
 #TokenWrapper {
