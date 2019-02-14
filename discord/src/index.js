@@ -1,107 +1,74 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
-class Text extends React.Component {
-	render() {
-		if (this.props.value === "bot") {
-			return (
-				<a>Switch to User account</a>
-				)
-		} else {
-			return (
-				<a>Switch to Bot account</a>
-				)
-		}
-	}
-}
-
-class Button extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: null,
-    };
-  }
-
-	log() {
-		console.log("hey")
-	}
-	  
-	// return React.createElement('button', 
-	// 	{className: "code", onClick: function() { this.setState({value: "bot"}) }}, 
-	// 	"hi")
-	render() {
-		if (this.props.value === "bot") {
-			return (	
-				<a onClick={() => {
-					this.props.onClick();
-				}} className="Button"> 
-					Switch to User account
-				</a>
-			)
-		} else {
-			return (
-
-				<a onClick={() => {
-					//alert(this.state.value)
-					this.props.onClick();
-				}} className="Button"> 
-					Switch to Bot account
-				</a>
-			)
-		}
-	}
-}
-
-class Input extends React.Component {
-	render() {
-		if (this.props.value === "bot") {
-			return (
-    			<label>
-	        		<a className="Field">Token</a>
-	        		<input type="password" id="TokenButton" name="token" />
-        		</label>
-			);
-		} else {
-			return (
-        			<label>
-		        		<a className="Field">Username</a>
-		        		<input type="username" id="TokenButton" name="username" />
-
-		        		<a className="Field">password</a>
-		        		<input type="password" id="TokenButton" name="password" />
-					</label>
-        		)
-		}
-	}
-}
+import Button from './Login/Button.js'
+import Input from './Login/Input.js'
+import BlankFieldError from './Login/BlankFieldError.js'
 
 class Login extends React.Component {
 	constructor(props) {
     	super(props);
 		this.state = {
-			value: "bot"
+			user: "bot",
+			token: "",
+			username: "",
+			password: "",
+			Field: new BlankFieldError(false, false, false)
 		}
 	}
-	handle() {
-		if (this.state.value === "bot") {
-			this.setState({value: "user"});
+
+	submit(e) {
+		e.preventDefault()
+		if (this.state.token != "" || (this.state.username != "" && this.state.password != "")) {
+			
 		} else {
-			this.setState({value: "bot"});
+			//todo error messages
+			let err = new BlankFieldError(this.state.token == "", this.state.username == "", this.state.password == "");
+			this.setState({Field: err})
 		}
 	}
+	change(event) {
+		console.log( event)
+		this.setState({[event.target.name]: event.target.value})
+	}
+
+	switchUser() {
+		this.setState({
+			username: "",
+			token: "",
+			password: "",
+			Field: new BlankFieldError(false, false, false)
+		})
+		if (this.state.user === "bot") {
+			this.setState({
+				user: "user"
+			})
+		} else {
+			this.setState({
+				user: "bot"
+			})
+		}
+	}
+
  	render() {
-		
 		return (
 			<div>
-				<div id="TokenWrapper">
-					<Input value={this.state.value}></Input>
-		        </div>
-		        <label> 
-		        	<button id="button" type="submit">Login</button>
-		        </label>
-		        <Button onClick={() => this.handle()} valueg={this.state.value}></Button>
+			    <form className="form" onSubmit={(e) => this.submit(e)}>
+			      <div className="centeringWrapper">
+
+			        <div id="title">Welcome back!</div>
+			        <div id="subtitle">Good to see you again!</div>
+
+					<div id="TokenWrapper">
+						<Input value={this.state.user} change={(e) => this.change(e)} Field={this.state.Field}></Input>
+			        </div>
+			        <label> 
+			        	<button id="button" type="submit">Login</button>
+			        </label>
+			        <Button onClick={() => this.switchUser()} value={this.state.user}></Button>
+
+			      </div>
+			    </form>
 	        </div>
 		)
 	}

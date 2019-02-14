@@ -23,7 +23,7 @@ body {
 }
 
 
-#TokenButton {
+.TokenButton {
   width: 100%;
   background-color: rgba(0,0,0,.1);
   border-color: rgba(0,0,0,.3);
@@ -39,7 +39,6 @@ body {
   width: 100%;
 }
 
-
 .Field {
     color: #b9bbbe;
     letter-spacing: .5px;
@@ -54,6 +53,15 @@ body {
     padding: 10px 0px 0px 0px;
 }
 
+.errorField {
+  color: #f04747;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+.inputError {
+  border-color: #f04747;
+}
 
 #TokenWrapper {
   margin-bottom: 20px;
@@ -75,4 +83,7 @@ body {
 
   background-color: #7289da;
   color: #fff;
+}
+#redField {
+  color: red;
 }
