@@ -1,5 +1,6 @@
 import React from 'react';
 import './../index.css';
+import './Login.css';
 
 class Field extends React.Component {
 	render() {
@@ -23,7 +24,7 @@ class Field extends React.Component {
 	}
 }
 
-class Input extends React.Component {
+class LoginInput extends React.Component {
 	render() {
 		let errored = this.props.Field.fields;
 		if (this.props.value === "bot") {
@@ -51,4 +52,4 @@ class Input extends React.Component {
 		}
 	}
 }
-export default Input
+export default LoginInput

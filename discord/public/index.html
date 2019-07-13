@@ -5,41 +5,13 @@
 
   <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
 
-  <script src="assets/js/particles.js"></script>
-  <script type="text/javascript">
-    particlesJS.load('particles-js', 'assets/particles.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
-    // event handler function
-  function handler(e) {
-    let elem = document.getElementsByClassName("particles-js-canvas-el")[0]
-    let Width = elem.offsetWidth;
-    let Height = elem.offsetHeight;
-    
-    let y = (e.screenY - (Height/2))
-    let x = (e.screenX - (Width/2))
-    elem.offsetWidth = elem.offsetWidth + 100;
-    elem.offsetHeight = elem.offsetHeight + 100;
-
-    elem.style = "right: " + x*-1/10 + "px; top: 0px"
-
-
-    //elem.style.right = x*-1/10;
-     //elem.style.padding = top + " " + right + " " + bottom + " " + left;
-      //console.log(top + " " + right + " " + bottom + " " + left);
-  }
-
-  // attach handler to the click event of the document
-  if (document.attachEvent) document.attachEvent('onmoussemove', handler);
-  else document.addEventListener('mousemove', handler);
+  <script src="assets/js/particles/particles.js"></script>
+  <script src="assets/js/particles/particleLoad.js" type="text/javascript">
   </script>
 </head>
 
-<body id="particles-js">
-  <div id="name"><a>Client</a></div>
-  <div class="loginForm">
+<body onload="particleLoad()">
     <div id="login"></div>
-  </div>
 </body>
 </html>
 

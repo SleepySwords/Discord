@@ -1,0 +1,78 @@
+
+/* Login stuff */
+.Button {
+  color: #7289da;
+  cursor: pointer;
+  float: right;
+  padding: 10px 0px 0px 0px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.TokenButton:focus {
+  border-color: #7289da;
+}
+
+.TokenButton {
+  width: 100%;
+  background-color: rgba(0,0,0,.1);
+  border-color: rgba(0,0,0,.3);
+  color: #f6f6f7;
+  height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  transition: background-color .15s ease,border .15s ease;
+  outline: none;
+  width: 100%;
+}
+
+.Field {
+    color: #b9bbbe;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 900;
+    line-height: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: left;
+    float: left;
+    padding: 10px 0px 0px 0px;
+}
+
+.errorField {
+  color: #f04747;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+.inputError {
+  border-color: #f04747 !important;
+}
+
+#TokenWrapper {
+  margin-bottom: 20px;
+}
+
+#button {
+  outline: none;
+  border: none;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 100%;
+  font-weight: 500;
+  transition:background-color .17s ease,color .17s ease;
+
+  background-color: #7289da;
+  color: #fff;
+}
+#redField {
+  color: red;
+}

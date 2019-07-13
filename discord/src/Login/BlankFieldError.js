@@ -1,4 +1,4 @@
-class BlankFieldError extends Error{
+class BlankFieldError extends Error {
 	constructor(token, username, password) {
 		super()
 		this.fields = [token, username, password]

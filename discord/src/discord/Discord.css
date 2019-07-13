@@ -1,0 +1,35 @@
+
+
+/* MessageBar stuff */
+#MessageBarInput {
+    height: 20px;
+    width: 100%;
+    background-color: #ababab;
+    font-size: 17px;
+    margin: 5px 20px 5px 10px;
+    padding: 10px 15px;
+    /* border-radius: 5px; */
+    /* height: auto; */
+    resize: none;
+    border: none;
+    border-left: #fff solid 1px;
+}
+
+#MessageBarInput:focus {
+    outline-width: 0;
+}
+
+
+.MessageBar {
+    display: flex;
+    background-color: #ababab;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.button {
+    padding: 10px 0px 10px 10px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
